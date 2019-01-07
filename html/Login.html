@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8" />
+	<meta name="robots" content="noindex, nofollow">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-param" content="_csrf">
+
+	<title>Authorization</title>
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+	 crossorigin="anonymous">
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp"
+	 crossorigin="anonymous">
+	<!--custom  css-->
+	 <link rel="stylesheet" href="assets/css/styles.css"/>
+	<style>
+		
+	</style>
+</head>
+
+<body>
+
+
+
+	<div class="container-fluid" id="login-wrapper">
+		<div class="row">
+			<div class="col-md-5 col-sm-5 left-container">
+				<div class="content-center">
+				<h2 class="app-title">Application Name</h2>
+				<h3 class="sub-head-title">Why our service ?</h3>
+				<ul class="service-points">
+					<li>Some important points for the application</li>
+					<li>Some important points for the application</li>
+					<li>Some important points for the application</li>
+				</ul>
+				<div class="btn-center">
+						<button type="submit" class="btn btn-lg btn-secondary  margin-top-bottom">Enroll</button>
+				</div>
+				
+				</div>
+			</div>
+			<div class="col-md-5 col-sm-5 col-md-offset-1 col-sm-offset-1 margin-top-header">
+					<h3 class="heading">Login</h3>
+					
+					<form id="login-form" action="/current/web/index.php?r=user-management%2Fauth%2Flogin" method="post" autocomplete="off"></form>
+						<input type="hidden" name="_csrf" value="31T39D09i4eu-U3ahDfMKt8WfpqnkKjwNA98Dd9Ht0SzGtqyBVHqwfqwAJPuA7ZtsWZKzdej_IlcQAhUkw37Jg==">
+						<div class="form-group field-loginform-username required">
+							<label class="control-label" for="loginform-username">E-mail / Login ID</label>
+							<input type="text" id="loginform-username" class="form-control" name="LoginForm[username]" placeholder="Username" autocomplete="off"
+							 aria-required="true">
+							<p class="help-block help-block-error"></p>
+						</div>
+						<div class="form-group field-loginform-password required">
+								<label class="control-label" for="loginform-password">Password</label>
+							<input type="password" id="loginform-password" class="form-control" name="LoginForm[password]" placeholder="Password" autocomplete="off"
+							 aria-required="true">
+							<p class="help-block help-block-error"></p>
+						</div>
+
+						<button type="submit" class="btn btn-lg btn-primary pull-right margin-top-bottom">Login</button>
+						<a href="#" class="forgot-pwd">Forgot Password ?</a>
+						<div class="clear"></div>
+						
+									
+								
+						<div class="login-footer">	
+							<ul class="recovery-links">
+								<li> <a href="#">Verify OTP</a>
+								<li> <a href="#">Existing Files</a>
+								<li> <a href="#">Rules</a>
+								<li> <a href="#">Contact Us</a>
+												
+							</ul>
+						</div>
+					</form>
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha256-3edrmyuQ0w65f8gfBsqowzjJe2iM6n0nKciPUp8y+7E="
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+	 crossorigin="anonymous"></script>
+
+</body>
+
+</html>

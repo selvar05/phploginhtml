@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="JIsEbu7INaGM58BUSMeATgOjEOipegTUwYUqfHxWeU4V2Ftci51Y6NylmDoRotEtecVDu5o-SKSt3XoXFjorOA==">
+    <title>My Application</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="assets/css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <link href="/current/web/assets/e3963483/css/datatables.min.css" rel="stylesheet">
+    <link href="assets/vendor/bootadmin.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/common.css" rel="stylesheet">
+    <style>
+        .no-gutters-left {
+    		padding-left: 0;
+    	}
+
+    	.no-gutters-right {
+    		padding-right: 0;
+    	}
+
+    </style>
+</head>
+
+<body class="bg-light">
+
+        <nav class="navbar navbar-expand navbar-dark bg-primary">
+                <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+                <a class="navbar-brand" href="/current/web/">My Application</a>
+    
+                <div class="navbar-collapse collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item dropdown">
+                                                        <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
+                                        selvajobs@gmail.com</a>
+                                <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+                                        <!-- <a href="#" class="dropdown-item">Profile</a> -->
+                                                <form action="/current/web/index.php?r=site%2Flogout" method="post">
+    <input type="hidden" name="_csrf" value="LjpdzoTh2F9M5JqaH1tco_4FJV1td8OzbVxPaIzR-vgfaQL84bS1FhymwvRGPg3AhGN2Dl4zj8MBBB8D5r2ojg==">											<button type="submit" class="dropdown-item">LOGOUT</button>											</form>								</div>
+                                                    </li>
+                    </ul>
+                </div>
+        </nav>
+        
+        <!-- <div class="container"> -->
+        <div class="d-flex">
+                
+    
+                <div class="sidebar sidebar-dark bg-dark">
+                    <ul class="list-unstyled "><li class="active"><a href="/current/web/index.php?r=enrollment-master%2Fgetform">Enrollment Form</a></li>
+    <li><a href="/current/web/index.php?r=userbasicdetailsmaster%2Fgetform">Personal Form</a></li>
+    <li><a href="/current/web/index.php?r=addressform%2Fgetform">Address Form</a></li>
+    <li><a href="/current/web/index.php?r=userschool%2Fgetform">Education Form</a>
+    <ul>
+    <li class="list-unstyled"><a href="/current/web/index.php?r=userschool%2Fgetform">School Form</a></li>
+    <li class="list-unstyled"><a href="/current/web/index.php?r=userscollege%2Fgetform">College Form</a></li>
+    <li class="list-unstyled"><a href="/current/web/index.php?r=userlawcollege%2Fgetform">LawCollege Form</a></li>
+    </ul>
+    </li>
+    <li><a href="/current/web/index.php?r=employmentform%2Fgetform">Employment Form</a></li>
+    <li><a href="/current/web/index.php?r=userotherinformation%2Fgetform">Other Information Form</a></li>
+    <li><a href="/current/web/index.php?r=user-document%2Fgetform">Document Form</a></li>
+    <li><a href="/current/web/index.php?r=user-fee-master%2Fgetform">Payment Form</a></li></ul>			</div>
+                <div class="content p-4">
+                                   
+                    <div class="form-row"> 
+    <div class="col-md-6 mb-2"> 
+        <h2 class="mb-4">Enrollment Form</h2>
+    </div>
+        <div class="col-md-6 mb-2">
+            <h5 class="mb-4 text-right">Application No : 123456196505</h5>
+        </div>
+    </div>
+    <div class="card mb-4">
+        
+    
+    <div class="card-body">
+    
+        <form id="w0" action="/current/web/index.php?r=enrollment-master%2Fgetform" method="post">
+    <input type="hidden" name="_csrf" value="LjpdzoTh2F9M5JqaH1tco_4FJV1td8OzbVxPaIzR-vgfaQL84bS1FhymwvRGPg3AhGN2Dl4zj8MBBB8D5r2ojg==">    <div class="form-row">                          
+            <div class="col-md-6 mb-2"> 
+                <div class="form-group field-enrollmentmaster-name required">
+    <label class="control-label" for="enrollmentmaster-name">Name</label>
+    <input type="text" id="enrollmentmaster-name" class="form-control" name="EnrollmentMaster[Name]" value="selva" maxlength="40" aria-required="true">
+    
+    <div class="help-block"></div>
+    </div>        </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group field-enrollmentmaster-fathername required">
+    <label class="control-label" for="enrollmentmaster-fathername">Father Name</label>
+    <input type="text" id="enrollmentmaster-fathername" class="form-control" name="EnrollmentMaster[FatherName]" value="selva" maxlength="40" aria-required="true">
+    
+    <div class="help-block"></div>
+    </div>        </div>
+        </div>
+        <div class="form-row">							
+            <div class="col-md-6 mb-2">
+                <div class="form-group field-enrollmentmaster-spousename">
+    <label class="control-label" for="enrollmentmaster-spousename">Spouse Name</label>
+    <input type="text" id="enrollmentmaster-spousename" class="form-control" name="EnrollmentMaster[spousename]" value="selva" maxlength="40">
+    
+    <div class="help-block"></div>
+    </div>        </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group field-enrollmentmaster-dateofbirth required">
+    <label class="control-label" for="enrollmentmaster-dateofbirth">Date Of Birth</label>
+    <input type="text" id="enrollmentmaster-dateofbirth" class="form-control" name="EnrollmentMaster[DateOfBirth]" value="1965-01-01" autocomplete="off" aria-required="true">
+    
+    <div class="help-block"></div>
+    </div>         </div>
+        </div>
+        <div class="form-row">
+            <div class="col-md-6 mb-2">		
+                <div class="form-group field-enrollmentmaster-phone required">
+    <label class="control-label" for="enrollmentmaster-phone">Phone</label>
+    <input type="text" id="enrollmentmaster-phone" class="form-control" name="EnrollmentMaster[Phone]" value="9999999999" maxlength="10" aria-required="true">
+    
+    <div class="help-block"></div>
+    </div>        </div>
+            <div class="col-md-6 mb-2">
+                <div class="form-group field-enrollmentmaster-provisional required">
+    <label class="control-label" for="enrollmentmaster-provisional">Provisional Certificate Number</label>
+    <input type="text" id="enrollmentmaster-provisional" class="form-control" name="EnrollmentMaster[Provisional]" value="123456" readonly aria-required="true">
+    
+    <div class="help-block"></div>
+    </div>                    </div>
+            <div class="col-md-6 mb-2">
+                        </div>
+        </div>
+    </div>
+    <div class="card-footer bg-white">
+        <button type="submit" class="btn btn-primary">Save & Continue</button>        </form></div>
+    
+    </div>
+    
+    
+                </div>
+        </div>
+    
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; My Company 2019</p>
+    
+                </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/bootadmin.js"></script>    
+    <script type="text/javascript" src="assets/js/home.js"></script>
+</body>
+
+</html>

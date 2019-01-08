@@ -54,6 +54,8 @@ h2.mb-4 {
 .control-label {
   color: #23a76d;
   margin: 10px 0;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 .btn {
@@ -160,7 +162,9 @@ h2.mb-4 {
   background: none !important;
   border: 0;
 }
-
+.card-bg{
+  background:rgba(35,167,109,0.6);
+}
 /*side bar steps css */
 
 .stepwizard-step p {
@@ -259,8 +263,7 @@ h2.mb-4 {
 
 /*Home page circle progress bar styles*/
 .progress-graph{
-    margin:20px 0;
-  
+    margin:30px 0 20px;
 }
 
 @media (max-width: 585px) {

@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-param" content="_csrf">
+    <meta name="csrf-token" content="RJphmN7vj1q9gZGvBG8kwwnpP5g_m9ufXbRCQtU6wpU87hWpu7i4HdX56PdpH3anWdpQ3Gv8ltQp-QcYmnm7xw==">
+    <title>Application Summary</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
+    <link href="assets/css/stylesheet.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+        crossorigin="anonymous">
+    <link href="assets/vendor/bootadmin.css" rel="stylesheet">
+    <link href="assets/css/main.css" rel="stylesheet">
+    <link href="assets/css/common.css" rel="stylesheet">
+    <link href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css" rel="stylesheet">
+    <style>
+        .no-gutters-left {
+    		padding-left: 0;
+    	}
+
+    	.no-gutters-right {
+    		padding-right: 0;
+    	}
+
+    </style>
+</head>
+
+<body class="bg-light">
+
+    <nav class="navbar navbar-expand navbar-dark bg-primary">
+        <a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+        <a class="navbar-brand" href="/current/web/index.php">My Application</a>
+
+        <div class="navbar-collapse collapse">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item dropdown">
+                    <a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i
+                            class="fa fa-user"></i>
+                        approvaluser1</a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+                        <!-- <a href="#" class="dropdown-item">Profile</a> -->
+                        <form action="/current/web/index.php?r=site%2Flogout" method="post">
+                            <input type="hidden" name="_csrf" value="RJphmN7vj1q9gZGvBG8kwwnpP5g_m9ufXbRCQtU6wpU87hWpu7i4HdX56PdpH3anWdpQ3Gv8ltQp-QcYmnm7xw==">
+                            <button type="submit" class="dropdown-item">LOGOUT</button> </form>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- <div class="container"> -->
+    <div class="d-flex">
+
+
+        <div class="sidebar sidebar-dark bg-dark">
+            <ul class="list-unstyled ">
+                <li><a href="/current/web/index.php?r=enrollment-master%2Findex"><i class="fa fa-search fa-large"></i>Enrollment Search</a></li>
+                <li><a href="/current/web/index.php?r=meeting-invite"><i class="fa fa-handshake fa-large"></i>Meeting Invite</a></li>
+                <li><a href="/current/web/index.php?r=manualpayment"><i class="fa fa-credit-card fa-large"></i>Manual Payment</a></li>
+            </ul>
+        </div>
+        <div class="content p-4">
+            <div class="text-center mb-4"></div>
+
+
+            <div class="form-row">
+                <div class="col-md-6 mb-2">
+                    <h2 class="mb-4">Application Summary</h2>
+                </div>
+            </div>
+            <div id="accordion">
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseOne" aria-expanded="true"
+                            aria-controls="collapseOne">
+                            Enrollment Detail
+                            <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="collapse show" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th>Name</th>
+                                        <td>test</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Father Name</th>
+                                        <td>test1</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Spouse Name</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Date Of Birth</th>
+                                        <td>2018-11-07</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Email</th>
+                                        <td>test77@gmail.com</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Phone Number</th>
+                                        <td>9790830094</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Application Id</th>
+                                        <td>1011</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo" aria-expanded="true"
+                            aria-controls="collapseTwo">
+                            Personal Detail <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th>AIBE</th>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Alternate Phone Number</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Community</th>
+                                        <td>OBC</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Blood Group</th>
+                                        <td>ABNeg</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Bar Association Place</th>
+                                        <td>Tamilnadu</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Gender</th>
+                                        <td>female</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Any case pending</th>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Case Pending Detail</th>
+                                        <td>NA</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Any Convictions</th>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Conviction Details</th>
+                                        <td>NA</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Remarks</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Moved By</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Government Proof </th>
+                                        <td>1234567890545</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Proof ID</th>
+                                        <td>PAN</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Practice place</th>
+                                        <td>Pondicherry</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Citizenship</th>
+                                        <td>1</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Aadhar Number</th>
+                                        <td>214748364745</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseThree" aria-expanded="true"
+                            aria-controls="collapseThree">
+                            Education Detail
+                            <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+                        </a>
+                    </div>
+                    <div id="collapseThree" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th colspan="2">
+                                            <h4>School Details</h4>
+                                        </th>
+                                        <td>
+                                            <div class="text-right">
+                                                <a href="/current/web/index.php?r=userschool%2Fupdate&amp;id=13">Edit</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>SSLC Year</th>
+                                        <td>2014-11-13</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SSLC School</th>
+                                        <td>vvkc</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SSLC Marks</th>
+                                        <td>100</td>
+                                    </tr>
+                                    <tr>
+                                        <th>SSLC Board</th>
+                                        <td>MATRIC</td>
+                                    </tr>
+                                    <tr>
+                                        <th>HSC Year</th>
+                                        <td>2014-01-31</td>
+                                    </tr>
+                                    <tr>
+                                        <th>HSC School</th>
+                                        <td>ssrs</td>
+                                    </tr>
+                                    <tr>
+                                        <th>HSC Marks</th>
+                                        <td>70</td>
+                                    </tr>
+                                    <tr>
+                                        <th>HSC Board</th>
+                                        <td>STATEBOARD</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Diploma Marks</th>
+                                        <td>0</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Number of Years</th>
+                                        <td>0</td>
+                                    </tr>
+
+                                </table>
+
+                                <!--College details-->
+
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th colspan="2">
+                                            <h4>College Details</h4>
+                                        </th>
+                                        <td>
+                                            <div class="text-right">
+                                                <a href="/current/web/index.php?r=userscollege%2Fupdate&amp;id=8">Edit</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><u>
+                                                <h5>UnderGraduation</h5>
+                                            </u></td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG Degree </th>
+                                        <td>BA</td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG Specialization</th>
+                                        <td>IT</td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG Degree Year</th>
+                                        <td>2014-11-13</td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG Percentage</th>
+                                        <td>99</td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG College Name</th>
+                                        <td>HICET</td>
+                                    </tr>
+                                    <tr>
+                                        <th>UG University</th>
+                                        <td>mm</td>
+                                    </tr>
+                                    <tr>
+                                        <td colspan="2"><u>
+                                                <h5>PostGraduation</h5>
+                                            </u></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG Degree</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG Specialization</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG Degree Year</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG Percentage</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG College Name</th>
+                                        <td></td>
+                                    </tr>
+                                    <tr>
+                                        <th>PG University</th>
+                                        <td></td>
+                                    </tr>
+                                </table>
+
+                                <!--Lae College details-->
+
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th colspan="2">
+                                            <h4>Law College Details</h4>
+                                        </th>
+                                        <td>
+                                            <div class="text-right">
+                                                <a href="/current/web/index.php?r=userlawcollege%2Fupdate&amp;id=13">Edit</a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Degree</th>
+                                        <td> BA LLB</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law College</th>
+                                        <td>Hoiu</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law University</th>
+                                        <td>test</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law College Place</th>
+                                        <td>test</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Year of Passing</th>
+                                        <td>2014-01-22</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Percentage</th>
+                                        <td>55%</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Roll No</th>
+                                        <td>8711</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Course Type</th>
+                                        <td>Evening</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Law Duration</th>
+                                        <td>3</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Provisional Certificate</th>
+                                        <td>093244453333333</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseFour" aria-expanded="true"
+                            aria-controls="collapseFour">
+                            Employment Detail <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+
+                        </a>
+                    </div>
+                    <div id="collapseFour" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <td colspan="2"><u>
+                                                <h5>Employment 1</h5>
+                                            </u></td>
+                                    </tr>
+                                    <tr>
+                                        <th>Company Name</th>
+                                        <td>CTS//766</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Last Working Date</th>
+                                        <td>2014-01-16</td>
+                                    </tr>
+                                    <tr>
+                                        <th>City</th>
+                                        <td>test</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Nature of Employment</th>
+                                        <td>IT</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Year of Service</th>
+                                        <td>2</td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="card-link" data-toggle="collapse" href="#collapseFive" aria-expanded="true"
+                            aria-controls="collapseFive">
+                            Other Information Detail
+                            <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+                        </a>
+                    </div>
+                    <div id="collapseFive" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th>Section24 Qualified</th>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Previously Applied</th>
+                                        <td>No</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Reject Reason</th>
+                                        <td>hjk</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Newspaper Publication Date</th>
+                                        <td>2021-03-18</td>
+                                    </tr>
+                                    <tr>
+                                        <th>Newspaper Published</th>
+                                        <td>Hindu</td>
+                                    </tr>
+                                </table>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+                <div class="card">
+                    <div class="card-header">
+                        <a class="collapsed card-link" data-toggle="collapse" href="#collapseSix" aria-expanded="true"
+                            aria-controls="collapseSix">
+                            Document Detail <span class="collapsed"><i class="fa fa-angle-down icons-collapse"></i></span>
+                            <span class="expanded"><i class="fa fa-angle-up icons-collapse "></i></span>
+                            <div class="edit-link"><a href="/current/web/index.php?r=enrollment-master%2Fupdate&amp;id=57">Edit</a></div>
+
+                        </a>
+                    </div>
+                    <div id="collapseSix" class="collapse" data-parent="#accordion">
+                        <div class="card-body">
+                            <div class="col-md-12 mb-2">
+                                <table class="table table-borderless summary-table">
+                                    <tr>
+                                        <th>Document Type</th>
+                                        <th>Document File</th>
+                                    </tr>
+                                    <tr>
+                                        <th>Experience certificate1</th>
+                                        <td><a href="/current/web/index.php?r=user-document%2Fdownload&amp;id=21">IMG-20180830-WA0003.jpg</a></td>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- collapse one ends-->
+
+            </div>
+
+
+
+            <div class="user-approval-master-form">
+
+                <form id="w0" action="/current/web/index.php?r=usersummary%2Fviewsummary&amp;id=89" method="post">
+                    <input type="hidden" name="_csrf" value="RJphmN7vj1q9gZGvBG8kwwnpP5g_m9ufXbRCQtU6wpU87hWpu7i4HdX56PdpH3anWdpQ3Gv8ltQp-QcYmnm7xw==">
+                    <div class="form-group field-userapprovalmaster-level1approvalstatus">
+                        <label class="control-label" for="userapprovalmaster-level1approvalstatus">Level1 Approval
+                            Status</label>
+                        <select id="userapprovalmaster-level1approvalstatus" class="form-control" name="UserApprovalMaster[level1ApprovalStatus]">
+                            <option value="">Select Status</option>
+                            <option value="Approved">Approved</option>
+                            <option value="Rejected">Rejected</option>
+                            <option value="Rework">Rework</option>
+                        </select>
+
+                        <div class="help-block"></div>
+                    </div>
+                    <div class="form-group field-userapprovalmaster-level1approvercomments">
+                        <label class="control-label" for="userapprovalmaster-level1approvercomments">Level1 Approver
+                            Comments</label>
+                        <textarea id="userapprovalmaster-level1approvercomments" class="form-control" name="UserApprovalMaster[level1ApproverComments]"
+                            maxlength="100"></textarea>
+
+                        <div class="help-block"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <button type="submit" class="btn btn-success" value="approve">Submit</button> </div>
+
+                </form>
+            </div>
+
+
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <p class="pull-left">&copy; My Company 2019</p>
+
+        </div>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <script type="text/javascript" src="assets/js/bootadmin.js"></script>
+    <script>jQuery(function ($) {
+            jQuery('#w0').yiiActiveForm([{ "id": "userapprovalmaster-level1approvalstatus", "name": "level1ApprovalStatus", "container": ".field-userapprovalmaster-level1approvalstatus", "input": "#userapprovalmaster-level1approvalstatus", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Level1 Approval Status must be a string.", "max": 10, "tooLong": "Level1 Approval Status should contain at most 10 characters.", "skipOnEmpty": 1 }); } }, { "id": "userapprovalmaster-level1approvercomments", "name": "level1ApproverComments", "container": ".field-userapprovalmaster-level1approvercomments", "input": "#userapprovalmaster-level1approvercomments", "validate": function (attribute, value, messages, deferred, $form) { yii.validation.string(value, messages, { "message": "Level1 Approver Comments must be a string.", "max": 100, "tooLong": "Level1 Approver Comments should contain at most 100 characters.", "skipOnEmpty": 1 }); } }], []);
+        });</script>
+</body>
+
+</html>

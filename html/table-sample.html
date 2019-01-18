@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="csrf-param" content="_csrf">
+	<meta name="csrf-token" content="jIFsqg4NlKpq3DiM_C5fbH_TfBgyKbir2c3o9riEHtf69S_yfznC3zKwSL6pZz46HIQwfVNM3fOMt7i84PBXsA==">
+	<title>Visit log</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	 crossorigin="anonymous">
+	<link href="assets/css/stylesheet.css" rel="stylesheet">
+	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.10/css/all.css" integrity="sha384-+d0P83n9kaQMCwj8F4RJB66tzIwOKmrdb46+porD/OvrJ+37WqIM7UoBtwHO6Nlg"
+	 crossorigin="anonymous">
+
+
+	<link href="assets/vendor/bootadmin.css" rel="stylesheet">
+	<link href="assets/css/main.css" rel="stylesheet">
+	<link href="assets/css/common.css" rel="stylesheet">
+	<link href="assets/css/datatables.min.css" rel="stylesheet">
+	<style>
+		.no-gutters-left {
+    		padding-left: 0;
+    	}
+
+    	.no-gutters-right {
+    		padding-right: 0;
+    	}
+
+    </style>
+</head>
+
+<body class="bg-light">
+
+	<nav class="navbar navbar-expand navbar-dark bg-primary">
+		<a class="sidebar-toggle mr-3" href="#"><i class="fa fa-bars"></i></a>
+		<a class="navbar-brand" href="/current/web/index.php">My Application</a>
+
+		<div class="navbar-collapse collapse">
+			<ul class="navbar-nav ml-auto">
+				<li class="nav-item dropdown">
+					<a href="#" id="dd_user" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false"><i class="fa fa-user"></i>
+						superadmin</a>
+					<div class="dropdown-menu dropdown-menu-right" aria-labelledby="dd_user">
+						<!-- <a href="#" class="dropdown-item">Profile</a> -->
+						<form action="/current/web/index.php?r=site%2Flogout" method="post">
+							<input type="hidden" name="_csrf" value="jIFsqg4NlKpq3DiM_C5fbH_TfBgyKbir2c3o9riEHtf69S_yfznC3zKwSL6pZz46HIQwfVNM3fOMt7i84PBXsA==">
+							<button type="submit" class="dropdown-item">LOGOUT</button> </form>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<!-- <div class="container"> -->
+	<div class="d-flex">
+
+
+		<div class="sidebar sidebar-dark bg-dark">
+			<ul class="list-unstyled">
+				<li><a href="/current/web/index.php?r=user-management%2Fuser%2Findex"><i class="fa fa-angle-double-right"></i>
+						Users</a></li>
+				<li><a href="/current/web/index.php?r=user-management%2Frole%2Findex"><i class="fa fa-angle-double-right"></i>
+						Roles</a></li>
+				<li><a href="/current/web/index.php?r=user-management%2Fpermission%2Findex"><i class="fa fa-angle-double-right"></i>
+						Permissions</a></li>
+				<li><a href="/current/web/index.php?r=user-management%2Fauth-item-group%2Findex"><i class="fa fa-angle-double-right"></i>
+						Permission groups</a></li>
+				<li class="active"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex"><i class="fa fa-angle-double-right"></i>
+						Visit log</a></li>
+			</ul>
+		</div>
+		<div class="content p-4">
+			<div class="text-center mb-4"></div>
+			<div class="user-visit-log-index">
+
+
+				<div class="panel panel-default">
+
+					<div class="panel-body">
+
+						<div class="row">
+							<div class="col-sm-12 text-right">
+								<div class="form-inline pull-right">
+
+									<span style="display: none" id="user-visit-log-grid-clear-filters-btn" class="btn btn-sm btn-default">
+										Clear filters </span>
+
+
+									Records per page
+									<select class="form-control input-sm" name="grid-page-size">
+										<option value="5">5</option>
+										<option value="10">10</option>
+										<option value="20" selected>20</option>
+										<option value="50">50</option>
+										<option value="100">100</option>
+										<option value="200">200</option>
+									</select></div>
+							</div>
+						</div>
+
+						<div id="user-visit-log-grid-pjax" data-pjax-container="" data-pjax-push-state data-pjax-timeout="1000">
+							<div id="user-visit-log-grid" class="grid-view">
+								<table class="table table-striped table-bordered hover">
+									<colgroup>
+										<col style="width:10px">
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+										<col>
+									</colgroup>
+									<thead>
+										<tr>
+											<th>#</th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=user_id" data-sort="user_id">User</a></th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=language" data-sort="language">Language</a></th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=os" data-sort="os">OS</a></th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=browser" data-sort="browser">Browser</a></th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=ip" data-sort="ip">IP</a></th>
+											<th><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;sort=visit_time"
+												 data-sort="visit_time">Visit Time</a></th>
+											<th class="action-column">&nbsp;</th>
+										</tr>
+										<tr id="user-visit-log-grid-filters" class="filters">
+											<td>&nbsp;</td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[user_id]"></td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[language]"></td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[os]"></td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[browser]"></td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[ip]"></td>
+											<td><input type="text" class="form-control" name="UserVisitLogSearch[visit_time]"></td>
+											<td>&nbsp;</td>
+										</tr>
+									</thead>
+									<tbody>
+										<tr data-key="593">
+											<td>1</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=593" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/202.91.140.97" target="_blank">202.91.140.97</a></td>
+											<td>Jan 17, 2019, 6:06:08 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=593"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="592">
+											<td>2</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=592" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/202.91.140.97" target="_blank">202.91.140.97</a></td>
+											<td>Jan 17, 2019, 5:12:10 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=592"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="591">
+											<td>3</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=591" data-pjax="0">admin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/157.51.87.114" target="_blank">157.51.87.114</a></td>
+											<td>Jan 17, 2019, 4:19:45 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=591"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="590">
+											<td>4</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=590" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/223.181.237.117" target="_blank">223.181.237.117</a></td>
+											<td>Jan 14, 2019, 5:18:35 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=590"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="589">
+											<td>5</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=589" data-pjax="0">approvaluser1</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.117.163" target="_blank">106.198.117.163</a></td>
+											<td>Jan 13, 2019, 5:52:58 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=589"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="588">
+											<td>6</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=588" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.117.163" target="_blank">106.198.117.163</a></td>
+											<td>Jan 13, 2019, 5:45:14 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=588"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="587">
+											<td>7</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=587" data-pjax="0">saturday1@yopmail.com</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/157.51.239.244" target="_blank">157.51.239.244</a></td>
+											<td>Jan 13, 2019, 5:42:13 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=587"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="586">
+											<td>8</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=586" data-pjax="0">saturday1@yopmail.com</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/157.51.239.244" target="_blank">157.51.239.244</a></td>
+											<td>Jan 13, 2019, 5:41:40 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=586"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="585">
+											<td>9</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=585" data-pjax="0">test123@gmail.com</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.208.71.214" target="_blank">106.208.71.214</a></td>
+											<td>Jan 13, 2019, 2:08:18 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=585"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="584">
+											<td>10</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=584" data-pjax="0">saturday1@yopmail.com</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/157.51.80.9" target="_blank">157.51.80.9</a></td>
+											<td>Jan 13, 2019, 8:10:50 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=584"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="583">
+											<td>11</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=583" data-pjax="0">approvaluser1</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/157.51.241.162" target="_blank">157.51.241.162</a></td>
+											<td>Jan 13, 2019, 8:02:09 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=583"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="582">
+											<td>12</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=582" data-pjax="0">kala@yopmail.com</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.208.29.11" target="_blank">106.208.29.11</a></td>
+											<td>Jan 13, 2019, 5:27:53 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=582"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="581">
+											<td>13</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=581" data-pjax="0">admin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.100.104" target="_blank">106.198.100.104</a></td>
+											<td>Jan 12, 2019, 5:52:13 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=581"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="580">
+											<td>14</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=580" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.100.104" target="_blank">106.198.100.104</a></td>
+											<td>Jan 12, 2019, 5:49:28 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=580"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="579">
+											<td>15</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=579" data-pjax="0">admin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.100.104" target="_blank">106.198.100.104</a></td>
+											<td>Jan 12, 2019, 5:47:26 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=579"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="578">
+											<td>16</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=578" data-pjax="0"></a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.208.71.214" target="_blank">106.208.71.214</a></td>
+											<td>Jan 12, 2019, 4:48:06 PM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=578"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="577">
+											<td>17</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=577" data-pjax="0"></a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/45.62.37.37" target="_blank">45.62.37.37</a></td>
+											<td>Jan 12, 2019, 9:43:39 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=577"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="576">
+											<td>18</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=576" data-pjax="0"></a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/106.198.59.115" target="_blank">106.198.59.115</a></td>
+											<td>Jan 11, 2019, 11:59:01 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=576"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="575">
+											<td>19</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=575" data-pjax="0">admin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/49.204.211.89" target="_blank">49.204.211.89</a></td>
+											<td>Jan 11, 2019, 8:52:53 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=575"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+										<tr data-key="574">
+											<td>20</td>
+											<td><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=574" data-pjax="0">superadmin</a></td>
+											<td>en</td>
+											<td>Windows</td>
+											<td>Chrome</td>
+											<td><a href="http://ipinfo.io/49.204.211.89" target="_blank">49.204.211.89</a></td>
+											<td>Jan 11, 2019, 8:52:22 AM</td>
+											<td style="width:70px; text-align:center;"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Fview&amp;id=574"
+												 title="View" aria-label="View" data-pjax="0"><i class="fa fa-eye"></i></a></td>
+										</tr>
+									</tbody>
+								</table>
+								<div class="row">
+									<div class="col-sm-8">
+										<ul class="pagination pagination-sm">
+											<li class="first disabled"><span>
+													<<</span> </li> <li class="prev disabled"><span>&laquo;</span></li>
+											<li class="active"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=1"
+												 data-page="0">1</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=2" data-page="1">2</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=3" data-page="2">3</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=4" data-page="3">4</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=5" data-page="4">5</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=6" data-page="5">6</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=7" data-page="6">7</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=8" data-page="7">8</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=9" data-page="8">9</a></li>
+											<li><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=10" data-page="9">10</a></li>
+											<li class="next"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=2"
+												 data-page="1">&raquo;</a></li>
+											<li class="last"><a href="/current/web/index.php?r=user-management%2Fuser-visit-log%2Findex&amp;page=30"
+												 data-page="29">>></a></li>
+										</ul>
+									</div>
+									<div class="col-sm-4 text-right">
+										<div class="summary">Showing <b>1-20</b> of <b>593</b> items.</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+	</div>
+
+	<footer class="footer">
+		<div class="container">
+			<p class="pull-left">&copy; My Company 2019</p>
+
+		</div>
+	</footer>
+
+	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	 crossorigin="anonymous"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	 crossorigin="anonymous"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.pjax/2.0.1/jquery.pjax.js"></script>
+	<script type="text/javascript" src="assets/js/bootadmin.js"></script>
+	<script>jQuery(function ($) {
+			var clearFiltersBtn = $('#user-visit-log-grid-clear-filters-btn');
+			var domContainer = $('body');
+
+			function showOrHideClearFiltersBtn() {
+				var showClearFiltersButton = false;
+
+				$('#user-visit-log-grid .filters input[type="text"], #user-visit-log-grid .filters select').each(function () {
+					var _t = $(this);
+
+					if (_t.val()) {
+						showClearFiltersButton = true;
+					}
+				});
+
+				if (showClearFiltersButton) {
+					clearFiltersBtn.show();
+				}
+				else {
+					clearFiltersBtn.hide();
+				}
+			}
+
+			showOrHideClearFiltersBtn();
+
+			// Show button if filters not empty and hide it if they are empty
+			domContainer.off('change', '#user-visit-log-grid .filters input[type="text"], #user-visit-log-grid .filters select').on('change', '#user-visit-log-grid .filters input[type="text"], #user-visit-log-grid .filters select', function () {
+				showOrHideClearFiltersBtn();
+			});
+
+			// Clear filters on button click
+			domContainer.off('click', '#user-visit-log-grid-clear-filters-btn').on('click', '#user-visit-log-grid-clear-filters-btn', function () {
+				var filter;
+
+				$('#user-visit-log-grid .filters input[type="text"], #user-visit-log-grid .filters select').each(function () {
+					filter = $(this);
+					filter.val('');
+				});
+
+				filter.trigger('change');
+			});
+			$('body').off('change', '[name="grid-page-size"]').on('change', '[name="grid-page-size"]', function () {
+				var _t = $(this);
+				$.post('/current/web/index.php?r=user-management%2Fuser-visit-log%2Fgrid-page-size', { 'grid-page-size': _t.val() })
+					.done(function () {
+						$.pjax.reload({ "container": "#user-visit-log-grid-pjax" });
+					});
+			});
+			jQuery('#user-visit-log-grid').yiiGridView({ "filterUrl": "\/current\/web\/index.php?r=user-management%2Fuser-visit-log%2Findex", "filterSelector": "#user-visit-log-grid-filters input, #user-visit-log-grid-filters select", "filterOnFocusOut": true });
+			jQuery(document).pjax("#user-visit-log-grid-pjax a", { "push": true, "replace": false, "timeout": 1000, "scrollTo": false, "container": "#user-visit-log-grid-pjax" });
+			jQuery(document).on("submit", "#user-visit-log-grid-pjax form[data-pjax]", function (event) { jQuery.pjax.submit(event, { "push": true, "replace": false, "timeout": 1000, "scrollTo": false, "container": "#user-visit-log-grid-pjax" }); });
+			var container = $('body');
+
+			container.off('focus', 'input[name="UserVisitLogSearch[visit_time]"]').on('focus', 'input[name="UserVisitLogSearch[visit_time]"]', function () {
+				$(this).daterangepicker({ "opens": "left", "format": "YYYY-MM-DD H:mm", "showDropdowns": true, "timePicker": true, "timePicker12Hour": false, "timePickerIncrement": 5, "locale": { "firstDay": 1, "fromLabel": "FROM", "toLabel": "TO", "applyLabel": "Apply", "cancelLabel": "Cancel", "customRangeLabel": "Custom range", "daysOfWeek": ["Su", "Mo", "Tu", "We", "Th", "Fr", "Sa"], "monthNames": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"] }, "ranges": { "Yesterday": ["2019-01-16", "2019-01-17"], "Today": ["2019-01-17", "2019-01-18"], "7 days": ["2019-01-10", "2019-01-18"], "Previous week": ["2019-01-07", "2019-01-14"], "Current week": ["2019-01-14", "2019-01-18"], "30 days": ["2018-12-17", "2019-01-18"], "Previous month": ["2018-12-01", "2019-01-01"], "Current month": ["2019-01-01", "2019-02-01"] } });
+			});
+
+			container.off('apply.daterangepicker', 'input[name="UserVisitLogSearch[visit_time]"]').on('apply.daterangepicker', 'input[name="UserVisitLogSearch[visit_time]"]', function (ev, picker) {
+				$('input[name="UserVisitLogSearch[visit_time]"]').trigger('change');
+				;
+			});
+		});</script>
+</body>
+
+</html>

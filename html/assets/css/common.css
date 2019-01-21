@@ -436,7 +436,25 @@ h2.mb-4 {
   color: #fff;
   -webkit-animation: minus 0.5s;
 }
+/*side bar sub menu styles*/
+.sub-wizard{
+  margin-left: 48px;
+}
+.sub-wizard .btn-circle{
+  width:20px;
+  height: 20px;
+  padding: 0;
+}
+.sub-wizard .fa{
+  font-size: 10px;
+  top: -1px;
+  position: relative;
+}
 
+.sub-wizard a.wiz-head{
+  margin-top: 15px;
+  top: -18px;
+}
 @keyframes minus {
   from {
     transform: rotate(0deg);

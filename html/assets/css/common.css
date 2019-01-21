@@ -211,7 +211,7 @@ h2.mb-4 {
   font-size: 17px;
 }
 .stepwizard-row-ul li a {
-  margin-top: 30px;
+  margin-top: 20px;
   display: block;
   float: left;
   width: 75%;
@@ -226,8 +226,9 @@ h2.mb-4 {
   
 }
 .stepwizard-row-ul li a::before{
-  font-family: "Font Awesome\ 5 Free";
-    content: "\f111";
+  content:"\e084";
+
+  font-family:'Glyphicons Halflings';
     position: absolute;
     top: -6px;
     bottom: 1px;
@@ -290,8 +291,8 @@ cursor:not-allowed;
     display: table;     
     width: 100%;
     position: relative;
-    margin-top:30px;
-    margin-left: 30px;
+    margin-top:20px;
+    margin-left: 20px;
 }
 
 .stepwizard-step button[disabled] {

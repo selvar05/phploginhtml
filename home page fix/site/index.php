@@ -7,8 +7,6 @@ use yii\grid\GridView;
 $this->title = 'My  Application';
 ?>
 <div class="site-index">
-<p><strong>WELCOME
-<?= Yii::$app->user->identity->username ?>!!!!!!</p></strong><br/>
 
 <div class="site-index">
                     <h3 class="title text-center appr-heading">Your Approval Status</h3>
@@ -63,7 +61,7 @@ $this->title = 'My  Application';
                     <div class="col-md-6">
                             <div class="card bg-white">
                                     <div class="card-header card-bg">
-                                            Welcome Selva !!!
+                                            Welcome <?= Yii::$app->user->identity->username ?>!!!!!!
                                     </div>
                                     <div class="card-body">
                                       <h5 class="card-title">Your Application Progress</h5>
